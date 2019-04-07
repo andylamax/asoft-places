@@ -44,11 +44,17 @@ kotlin {
             }
         }
     }
+    
     sourceSets {
         commonMain {
             dependencies {
                 implementation kotlin('stdlib-common')
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:0.9.1"
+                api project(":asoft-rx")
+                api project(":asoft-persist")
+
+                implementation "io.ktor:ktor-client-core:1.1.1"
+                implementation "io.ktor:ktor-client-auth:1.1.1"
             }
         }
         commonTest {
@@ -61,6 +67,9 @@ kotlin {
             dependencies {
                 implementation kotlin('stdlib-jdk8')
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.9.1"
+                implementation "io.ktor:ktor-client-core-jvm:1.1.1"
+                implementation "io.ktor:ktor-client-cio:1.1.1"
+                implementation "io.ktor:ktor-client-auth:1.1.1"
             }
         }
         jvmTest {
@@ -73,6 +82,9 @@ kotlin {
             dependencies {
                 implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:0.9.1"
                 implementation kotlin('stdlib-js')
+
+                implementation "io.ktor:ktor-client-js:1.1.1"
+                implementation "io.ktor:ktor-client-auth:1.1.1"
             }
         }
         jsTest {
