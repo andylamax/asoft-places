@@ -1,9 +1,6 @@
 package com.asofttz.places.country
 
-import kotlinx.serialization.Serializable
-
 @Suppress("ArrayInDataClass")
-@Serializable
 data class RegionalBloc(
         var acronym: String? = null,
         var name: String? = null,

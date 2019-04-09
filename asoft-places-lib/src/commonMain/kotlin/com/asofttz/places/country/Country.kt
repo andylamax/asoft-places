@@ -5,7 +5,6 @@ import kotlinx.serialization.Optional
 import kotlinx.serialization.Serializable
 
 @Suppress("ArrayInDataClass")
-@Serializable
 data class Country(
         var alpha2Code: String? = null,
         var alpha3Code: String? = null,

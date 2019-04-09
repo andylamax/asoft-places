@@ -1,8 +1,5 @@
 package com.asofttz.places.country
 
-import kotlinx.serialization.Serializable
-
-@Serializable
 data class Translations(
         var br: String? = null,
         var de: String? = null,

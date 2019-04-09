@@ -53,6 +53,7 @@ kotlin {
                 api project(":asoft-rx")
                 api project(":asoft-persist")
 
+                api project(":asoft-firebase")
                 implementation "io.ktor:ktor-client-core:1.1.1"
                 implementation "io.ktor:ktor-client-auth:1.1.1"
             }
