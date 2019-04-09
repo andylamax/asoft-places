@@ -18,12 +18,7 @@ object injection {
         val district = DataSourceConfig()
 
         val firebaseConfig = Options().apply {
-            apiKey = "AIzaSyAAG_21gH0J526JoNvsfQ86mqAwci4LUic"
-            authDomain = "asoft-places.firebaseapp.com"
-            databaseURL = "https=//asoft-places.firebaseio.com"
-            projectId = "asoft-places"
-            storageBucket = "asoft-places.appspot.com"
-            messagingSenderId = "934679534088"
+
         }
     }
 
