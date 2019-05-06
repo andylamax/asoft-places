@@ -82,9 +82,12 @@ class PlacesFirebaseDao private constructor(private val firestore: Firestore) : 
             it.name == districtName
         }
         if (district != null) {
+            if (district.wards.isNotEmpty()) {
+                return district.wards
+            }
             val path = "countries/${district.countryName}/regions/${district.regionName}/districts/${district.name}/wards"
             getDocs(path).forEach {
-                wards += it.toObject(Ward()).also {w->
+                wards += it.toObject(Ward()).also { w ->
                     w.countryName = district.countryName
                     w.regionName = district.regionName
                     w.districtName = district.name
@@ -102,6 +105,9 @@ class PlacesFirebaseDao private constructor(private val firestore: Firestore) : 
         }
 
         if (ward != null) {
+            if (ward.streets.isNotEmpty()) {
+                return ward.streets
+            }
             val path = "countries/${ward.countryName}/regions/${ward.regionName}/districts/${ward.districtName}/wards/${ward.name}/streets"
             getDocs(path).forEach {
                 streets += it.toObject(Street())
