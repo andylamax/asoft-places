@@ -1,7 +1,6 @@
-package com.asofttz.places.region
+package tz.co.asoft.places.region
 
-import com.asofttz.places.disctrict.District
-import kotlinx.serialization.Serializable
+import tz.co.asoft.places.disctrict.District
 
 class Region(
         var id: Int = 0,

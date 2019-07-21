@@ -1,4 +1,4 @@
-package com.asofttz.places.country
+package tz.co.asoft.places.country
 
 data class Language(
         var iso639_1: String? = null,

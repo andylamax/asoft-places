@@ -1,6 +1,6 @@
-package com.asofttz.places.ward
+package tz.co.asoft.places.ward
 
-import com.asofttz.places.street.Street
+import tz.co.asoft.places.street.Street
 
 class Ward(var name: String = "",
            var districtName: String = "",

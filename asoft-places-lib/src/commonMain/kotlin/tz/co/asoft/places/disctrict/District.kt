@@ -1,7 +1,6 @@
-package com.asofttz.places.disctrict
+package tz.co.asoft.places.disctrict
 
-import com.asofttz.places.ward.Ward
-import kotlinx.serialization.Serializable
+import tz.co.asoft.places.ward.Ward
 
 class District(
         var name: String = "",

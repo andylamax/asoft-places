@@ -1,8 +1,7 @@
-package com.asofttz.places.country
+package tz.co.asoft.places.country
 
-import com.asofttz.places.region.Region
+import tz.co.asoft.places.region.Region
 import kotlinx.serialization.Optional
-import kotlinx.serialization.Serializable
 
 @Suppress("ArrayInDataClass")
 data class Country(

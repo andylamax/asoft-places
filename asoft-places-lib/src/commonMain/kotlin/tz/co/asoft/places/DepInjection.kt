@@ -1,11 +1,11 @@
-package com.asofttz.places
+package tz.co.asoft.places
 
 import com.asofttz.firebase.app.Options
 import com.asofttz.firebase.app.firebase
 import com.asofttz.persist.DataSourceConfig
-import com.asofttz.places.data.dao.PlacesFirebaseDao
-import com.asofttz.places.data.repo.PlacesRepo
-import com.asofttz.places.data.viewmodel.TZPlacesViewModel
+import tz.co.asoft.places.data.dao.PlacesFirebaseDao
+import tz.co.asoft.places.data.repo.PlacesRepo
+import tz.co.asoft.places.data.viewmodel.TZPlacesViewModel
 
 object injection {
     private object config {

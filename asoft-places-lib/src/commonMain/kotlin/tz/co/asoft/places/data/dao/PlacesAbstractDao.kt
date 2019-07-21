@@ -1,11 +1,11 @@
-package com.asofttz.places.data.dao
+package tz.co.asoft.places.data.dao
 
 import com.asofttz.persist.Dao
-import com.asofttz.places.country.Country
-import com.asofttz.places.disctrict.District
-import com.asofttz.places.region.Region
-import com.asofttz.places.street.Street
-import com.asofttz.places.ward.Ward
+import tz.co.asoft.places.country.Country
+import tz.co.asoft.places.disctrict.District
+import tz.co.asoft.places.region.Region
+import tz.co.asoft.places.street.Street
+import tz.co.asoft.places.ward.Ward
 
 abstract class PlacesAbstractDao : Dao<Country>() {
     abstract suspend fun loadCountryByCode(code: String): Country?

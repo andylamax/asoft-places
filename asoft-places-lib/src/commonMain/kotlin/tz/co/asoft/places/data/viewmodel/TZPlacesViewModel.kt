@@ -1,6 +1,6 @@
-package com.asofttz.places.data.viewmodel
+package tz.co.asoft.places.data.viewmodel
 
-import com.asofttz.places.data.repo.PlacesAbstractRepo
+import tz.co.asoft.places.data.repo.PlacesAbstractRepo
 
 open class TZPlacesViewModel(private val placesRepo: PlacesAbstractRepo) {
     suspend fun nationalities() = placesRepo.loadAll().value.mapNotNull {

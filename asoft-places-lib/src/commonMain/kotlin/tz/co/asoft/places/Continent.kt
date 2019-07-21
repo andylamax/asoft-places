@@ -1,6 +1,6 @@
-package com.asofttz.places
+package tz.co.asoft.places
 
-import com.asofttz.places.country.Country
+import tz.co.asoft.places.country.Country
 
 class Continent(var name: String = "") {
     var countries = arrayOf<Country>()

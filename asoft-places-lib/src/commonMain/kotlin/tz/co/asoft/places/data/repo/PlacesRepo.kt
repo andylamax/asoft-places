@@ -1,6 +1,6 @@
-package com.asofttz.places.data.repo
+package tz.co.asoft.places.data.repo
 
-import com.asofttz.places.data.dao.PlacesAbstractDao
+import tz.co.asoft.places.data.dao.PlacesAbstractDao
 
 class PlacesRepo private constructor(dao: PlacesAbstractDao) : PlacesAbstractRepo(dao) {
     companion object {

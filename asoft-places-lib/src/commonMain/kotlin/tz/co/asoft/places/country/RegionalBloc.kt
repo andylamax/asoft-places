@@ -1,4 +1,4 @@
-package com.asofttz.places.country
+package tz.co.asoft.places.country
 
 @Suppress("ArrayInDataClass")
 data class RegionalBloc(

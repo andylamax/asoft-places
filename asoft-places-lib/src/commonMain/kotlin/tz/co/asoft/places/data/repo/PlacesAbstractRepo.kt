@@ -1,8 +1,8 @@
-package com.asofttz.places.data.repo
+package tz.co.asoft.places.data.repo
 
 import com.asofttz.persist.Repo
-import com.asofttz.places.country.Country
-import com.asofttz.places.data.dao.PlacesAbstractDao
+import tz.co.asoft.places.country.Country
+import tz.co.asoft.places.data.dao.PlacesAbstractDao
 
 abstract class PlacesAbstractRepo(private val dao: PlacesAbstractDao) : Repo<Country>(dao) {
     open suspend fun loadCountryByCode(code: String) = dao.loadCountryByCode(code)
