@@ -1,7 +1,3 @@
-**/build
-/.gradle
-**/.gradle
-**/.idea
-/.idea
-build/**
-/build
+build
+.idea
+local.properties
