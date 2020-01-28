@@ -2,8 +2,6 @@ package tz.co.asoft.places.data.dao
 
 import tz.co.asoft.firebase.firestore.FirebaseFirestore
 import tz.co.asoft.firebase.firestore.collection
-import tz.co.asoft.firebase.firestore.collection.CollectionReference
-import tz.co.asoft.firebase.firestore.query.Query
 import tz.co.asoft.firebase.firestore.query.fetch
 import tz.co.asoft.firebase.firestore.query.get
 import tz.co.asoft.firebase.firestore.query.where
@@ -16,8 +14,8 @@ import tz.co.asoft.places.region.Region
 import tz.co.asoft.places.street.Street
 import tz.co.asoft.places.ward.Ward
 
-class PlacesFirebaseDao private constructor(private val firestore: FirebaseFirestore) : PlacesAbstractDao() {
-    companion object : Singleton<FirebaseFirestore, PlacesAbstractDao>({ PlacesFirebaseDao(it) })
+class PlacesFirebaseDao private constructor(private val firestore: FirebaseFirestore) : IPlacesDao {
+    companion object : Singleton<FirebaseFirestore, IPlacesDao>({ PlacesFirebaseDao(it) })
 
     override suspend fun loadCountryByCode(code: String): Country? {
         val qs = firestore.collection("countries").where("alpha2Code", "==", code).fetch()

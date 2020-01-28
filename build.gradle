@@ -1,27 +1,27 @@
 buildscript {
     ext {
-        kotlin_version = "1.3.50"
-        persist_version = "4.0.0"
-        asoft_firebase_version = "5.0.0"
-        coroutines_version = "1.3.0"
+        kotlin_version = "1.3.61"
+        asoft_firebase_version = "25.1.0"
+        coroutines_version = "1.3.3"
+        android_tools_version = "3.3.2"
     }
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.31"
+        classpath "com.android.tools.build:gradle:$android_tools_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
     }
 }
 
 plugins {
-    id 'kotlin-multiplatform' version '1.3.50'
+    id 'kotlin-multiplatform' version '1.3.61'
 }
 
 group 'tz.co.asoft'
-version '1.0.0'
+version '2.0.0'
 
 apply plugin: "kotlinx-serialization"
 apply plugin: 'com.android.library'
@@ -32,13 +32,14 @@ android {
     defaultConfig {
         minSdkVersion 17
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+        main {
+            manifest.srcFile 'src/androidMain/AndroidManifest.xml'
+            resources.srcDirs = ['src/androidMain/resources']
+        }
     }
 
     buildTypes {
@@ -77,6 +78,7 @@ kotlin {
                 jvmTarget = "1.8"
             }
         }
+        publishLibraryVariants("release")
     }
 
     jvm() {
@@ -87,34 +89,30 @@ kotlin {
         }
     }
 
-    android {
-        publishLibraryVariants("release")
-    }
-
     sourceSets {
         commonMain {
             dependencies {
                 implementation kotlin('stdlib-common')
                 api "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:$coroutines_version"
-                api "com.github.andylamax.asoft-persist:asoft-persist-metadata:$persist_version"
+//                api "com.github.andylamax.asoft-persist:asoft-persist-metadata:$persist_version"
                 api "com.github.andylamax.asoft-firebase:asoft-firebase-metadata:$asoft_firebase_version"
             }
         }
 
         jvmMain {
             dependencies {
-                implementation kotlin("stdlib-jdk8")
+                implementation kotlin("stdlib")
                 api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
-                api "com.github.andylamax.asoft-persist:asoft-persist-jvm:$persist_version"
+//                api "com.github.andylamax.asoft-persist:asoft-persist-jvm:$persist_version"
                 api "com.github.andylamax.asoft-firebase:asoft-firebase-jvm:$asoft_firebase_version"
             }
         }
 
         androidMain {
             dependencies {
-                implementation kotlin("stdlib-jdk8")
+                implementation kotlin("stdlib")
                 api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
-                api "com.github.andylamax.asoft-persist:asoft-persist-android:$persist_version"
+//                api "com.github.andylamax.asoft-persist:asoft-persist-android:$persist_version"
                 api "com.github.andylamax.asoft-firebase:asoft-firebase-android:$asoft_firebase_version"
             }
         }
@@ -123,7 +121,7 @@ kotlin {
             dependencies {
                 implementation kotlin('stdlib-js')
                 api "org.jetbrains.kotlinx:kotlinx-coroutines-core-js:$coroutines_version"
-                api "com.github.andylamax.asoft-persist:asoft-persist-js:$persist_version"
+//                api "com.github.andylamax.asoft-persist:asoft-persist-js:$persist_version"
                 api "com.github.andylamax.asoft-firebase:asoft-firebase-js:$asoft_firebase_version"
             }
         }

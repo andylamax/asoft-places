@@ -1,13 +1,12 @@
 package tz.co.asoft.places
 
-import tz.co.asoft.firebase.app.Firebase
 import tz.co.asoft.firebase.core.*
 import tz.co.asoft.firebase.firestore.firestore
 import tz.co.asoft.places.data.dao.PlacesFirebaseDao
 import tz.co.asoft.places.data.repo.PlacesRepo
 import tz.co.asoft.places.data.viewmodel.TZPlacesViewModel
 import tz.co.asoft.places.injection.config.firebase
-import tz.co.asoft.platform.Ctx
+import tz.co.asoft.platform.core.Ctx
 
 object injection {
     private object config {

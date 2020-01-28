@@ -1,8 +1,8 @@
 package tz.co.asoft.places.data.viewmodel
 
-import tz.co.asoft.places.data.repo.PlacesAbstractRepo
+import tz.co.asoft.places.data.repo.IPlacesRepo
 
-open class TZPlacesViewModel(private val placesRepo: PlacesAbstractRepo) {
+open class TZPlacesViewModel(private val placesRepo: IPlacesRepo) {
     suspend fun nationalities() = placesRepo.all()?.mapNotNull {
         it.demonym
     }?.filter { it.isNotBlank() }
