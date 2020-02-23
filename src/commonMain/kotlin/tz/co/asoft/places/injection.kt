@@ -2,6 +2,9 @@ package tz.co.asoft.places
 
 import tz.co.asoft.firebase.core.*
 import tz.co.asoft.firebase.firestore.firestore
+import tz.co.asoft.persist.di.dao
+import tz.co.asoft.persist.di.repo
+import tz.co.asoft.persist.di.single
 import tz.co.asoft.places.data.dao.PlacesFirebaseDao
 import tz.co.asoft.places.data.repo.PlacesRepo
 import tz.co.asoft.places.data.viewmodel.TZPlacesViewModel
@@ -31,11 +34,11 @@ object injection {
     }
 
     private object dao {
-        fun places(ctx: Ctx) = PlacesFirebaseDao.getInstance(firebase.firestore(ctx))
+        fun places(ctx: Ctx) = dao { PlacesFirebaseDao(firebase.firestore(ctx)) }
     }
 
     object repo {
-        fun places(ctx: Ctx) = PlacesRepo.getInstance(dao.places(ctx))
+        fun places(ctx: Ctx) = repo { PlacesRepo(dao.places(ctx)) }
     }
 
     object viewModel {

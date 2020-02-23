@@ -2,14 +2,7 @@ package tz.co.asoft.places.data.repo
 
 import tz.co.asoft.places.data.dao.IPlacesDao
 
-class PlacesRepo private constructor(private val dao: IPlacesDao) : IPlacesRepo {
-    companion object {
-        private var instance: IPlacesRepo? = null
-        fun getInstance(dao: IPlacesDao) = instance ?: PlacesRepo(dao).also {
-            instance = it
-        }
-    }
-
+class PlacesRepo(private val dao: IPlacesDao) : IPlacesRepo {
     override suspend fun loadCountryByCode(code: String) = dao.loadCountryByCode(code)
     override suspend fun loadRegionsInCountryWithCode(code: String) = dao.loadRegionsInCountryWithCode(code)
     override suspend fun loadDistrictsIn(countryCode: String, regionName: String) = dao.loadDistrictsIn(countryCode, regionName)
