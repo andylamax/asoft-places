@@ -1,9 +1,8 @@
 package tz.co.asoft.places.country
 
-import tz.co.asoft.places.region.Region
-import kotlinx.serialization.Optional
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.Serializer
+import tz.co.asoft.persist.model.Entity
+import tz.co.asoft.places.region.Region
 
 @Serializable
 data class Country(
@@ -31,5 +30,7 @@ data class Country(
         var timezones: MutableList<String> = mutableListOf(),
         var topLevelDomain: MutableList<String> = mutableListOf(),
         var translations: Translations = Translations(),
-        @Optional var regions: MutableList<Region> = mutableListOf()
-)
+        var regions: MutableList<Region> = mutableListOf()
+) : Entity {
+    override var uid = ""
+}

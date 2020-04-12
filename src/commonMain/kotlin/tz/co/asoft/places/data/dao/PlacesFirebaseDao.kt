@@ -5,17 +5,20 @@ import tz.co.asoft.firebase.firestore.collection
 import tz.co.asoft.firebase.firestore.query.fetch
 import tz.co.asoft.firebase.firestore.query.get
 import tz.co.asoft.firebase.firestore.query.where
-import tz.co.asoft.firebase.firestore.snapshot.*
+import tz.co.asoft.firebase.firestore.snapshot.documents
+import tz.co.asoft.firebase.firestore.snapshot.forEach
+import tz.co.asoft.firebase.firestore.snapshot.toObject
 import tz.co.asoft.persist.tools.Cause
-import tz.co.asoft.persist.tools.Singleton
 import tz.co.asoft.places.country.Country
 import tz.co.asoft.places.disctrict.District
 import tz.co.asoft.places.region.Region
 import tz.co.asoft.places.street.Street
 import tz.co.asoft.places.ward.Ward
 
-class PlacesFirebaseDao(private val firestore: FirebaseFirestore) : IPlacesDao {
-    
+class PlacesFirebaseDao(override val firestore: FirebaseFirestore) : IPlacesDao {
+    override val collectionName = "countries"
+    override val serializer = Country.serializer()
+
     override suspend fun loadCountryByCode(code: String): Country? {
         val qs = firestore.collection("countries").where("alpha2Code", "==", code).fetch()
         return qs.documents.getOrNull(0)?.toObject(Country.serializer())
